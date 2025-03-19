@@ -1,0 +1,259 @@
+:root {
+    --primary-color: #1e3a5f;    /* Azul mais profundo */
+    --secondary-color: #2c4c7c;   /* Azul médio */
+    --accent-color: #7e57c2;      /* Roxo/violeta para espiritualidade */
+    --text-color: #f5f5f7;        /* Branco suave */
+    --border-color: #4d5d7a;      /* Azul acinzentado */
+    --input-bg: #3a5580;          /* Azul mais claro para input */
+    --hover-color: #253c5e;       /* Azul escuro para hover */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 260px;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+}
+
+.new-chat {
+    padding: 10px;
+}
+
+#new-chat-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s;
+}
+
+#new-chat-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.history {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.user-info {
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 35px;
+    height: 35px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chat container styles */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-header {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-content {
+    display: flex;
+    gap: 15px;
+    max-width: 80%;
+}
+
+.user-message .message-content {
+    align-self: flex-end;
+}
+
+.ai-message {
+    background-color: var(--hover-color);
+    width: 100%;
+    padding: 20px;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-message .avatar {
+    background-color: var(--accent-color);
+}
+
+.user-message .avatar {
+    background-color: #8e44ad;
+}
+
+.text {
+    line-height: 1.5;
+}
+
+.chat-input-container {
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.chat-input-box {
+    display: flex;
+    background-color: var(--input-bg);
+    border-radius: 8px;
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+}
+
+#user-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 16px;
+    resize: none;
+    height: 24px;
+    max-height: 200px;
+    outline: none;
+    padding: 2px 0;
+}
+
+#send-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0 5px;
+    font-size: 16px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+#send-btn:hover {
+    opacity: 1;
+}
+
+.disclaimer {
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    color: #a0a0a0;
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+/* Adicione isso ao final do arquivo style.css */
+.typing-indicator {
+    display: flex;
+    gap: 5px;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    background-color: #a0a0a0;
+    border-radius: 50%;
+    display: inline-block;
+    animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 80%, 100% { 
+        transform: scale(0.6);
+        opacity: 0.6;
+    }
+    40% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Adicione estes estilos para a tagline */
+.tagline {
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+/* Adicione um estilo para citações inspiradoras */
+blockquote {
+    border-left: 3px solid var(--accent-color);
+    padding-left: 10px;
+    margin: 10px 0;
+    font-style: italic;
+} 
